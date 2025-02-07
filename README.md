@@ -1,16 +1,34 @@
-# device_info_app
+# Device Info App
 
-A new Flutter project.
+This Flutter app displays the device model and operating system version in the center of the screen.
 
-## Getting Started
+## Code Explanation
 
-This project is a starting point for a Flutter application.
+- `device_info_service.dart`: Contains the logic to fetch device info using the `device_info_plus`
+  package.
+- `home_screen.dart`: Displays the device info in the center of the screen.
+- `main.dart`: The main entry point of the app.
 
-A few resources to get you started if this is your first Flutter project:
+## Permissions
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Android:** Add the following to `AndroidManifest.xml`:
+  ```xml
+  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+  ```
+- **iOS:** Add the following to `Info.plist`:
+  ```xml
+  <key>NSPrivacyAccessedDevicesUsageDescription</key>
+  <string>This app requires access to device information.</string>
+  ```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation
+
+1. Clone the repository.
+2. Run `flutter pub get`.
+3. Run the app using `flutter run`.
+
+## Screenshot
+
+| Output                        |
+|-------------------------------|
+| ![Output](screens/output.jpg) |

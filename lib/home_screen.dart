@@ -4,28 +4,15 @@ import 'package:flutter/material.dart';
 class HomeScreen extends StatelessWidget {
   final DeviceInfoService deviceInfoService = DeviceInfoService();
 
-// class _HomeScreenState extends State<HomeScreen> {
-//   String deviceModel = "Loading...";
-//   String osVersion = "Loading...";
-//
-//   @override
-//   void initState() {
-//     super.initState();
-//     _loadDeviceInfo();
-//   }
-//
-//   Future<void> _loadDeviceInfo() async {
-//     final info = await DeviceInfoService.getDeviceInfo();
-//     setState(() {
-//       deviceModel = info["model"] ?? "Unknown";
-//       osVersion = info["osVersion"] ?? "Unknown";
-//     });
-//   }
+  HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('Device Info')),
+        appBar: AppBar(
+          title: const Text('Device Info'),
+          backgroundColor: Colors.green,
+        ),
         body: FutureBuilder<Map<String, String>>(
             future: deviceInfoService.getDeviceInfo(),
             builder: (context, snapshot) {
@@ -41,8 +28,11 @@ class HomeScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('Device Model: ${deviceData['model']}'),
-                      Text('OS Version: ${deviceData['osVersion']}'),
+                      Text('Device Model: ${deviceData['model']}',
+                          style: TextStyle(fontSize: 18)),
+                      SizedBox(height: 10),
+                      Text('OS Version: ${deviceData['osVersion']}',
+                          style: TextStyle(fontSize: 18)),
                     ],
                   ),
                 );
